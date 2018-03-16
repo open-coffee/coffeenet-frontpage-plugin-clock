@@ -3,6 +3,7 @@ package coffee.synyx.frontpage.plugin.clock;
 import coffee.synyx.frontpage.plugin.api.FrontpagePluginInterface;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ public class FrontpagePluginInterfaceImpl implements FrontpagePluginInterface {
     private final Clock clock;
 
     @Autowired
-    public FrontpagePluginInterfaceImpl(Clock clock) {
+    public FrontpagePluginInterfaceImpl(@Qualifier("plugin.clock.defaultClock") Clock clock) {
 
         this.clock = clock;
     }
