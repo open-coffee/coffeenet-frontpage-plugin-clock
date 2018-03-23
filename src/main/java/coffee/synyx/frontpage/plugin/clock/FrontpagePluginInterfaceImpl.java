@@ -5,13 +5,16 @@ import coffee.synyx.frontpage.plugin.api.FrontpagePluginInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.time.Clock;
-import java.time.Instant;
+
+import static java.time.Instant.now;
+import static java.time.ZoneId.systemDefault;
+import static java.time.format.DateTimeFormatter.ofPattern;
 
 
-@Service
+@Component
 public class FrontpagePluginInterfaceImpl implements FrontpagePluginInterface {
 
     private final Clock clock;
@@ -23,8 +26,16 @@ public class FrontpagePluginInterfaceImpl implements FrontpagePluginInterface {
     }
 
     @Override
-    public String render() {
+    public String title() {
 
-        return "Hello CoffeeNet, it is " + Instant.now(clock).toString();
+        return "Clock";
+    }
+
+
+    @Override
+    public String content() {
+
+        return "Hello CoffeeNet, it is "
+            + ofPattern("yyyy-MM-dd hh:mm:ss").withZone(systemDefault()).format(now(clock));
     }
 }
