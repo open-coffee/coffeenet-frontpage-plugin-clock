@@ -7,7 +7,7 @@ jdk:
 
 before_deploy:
   - mvn -DskipTests package
-  - export JAR_FILE=$(ls target/frontpage-plugin-api*.jar)
+  - export JAR_FILE=$(ls target/frontpage-plugin-clock*.jar)
   - echo "deploying $JAR_FILE to GitHub releases"
 
 deploy:
