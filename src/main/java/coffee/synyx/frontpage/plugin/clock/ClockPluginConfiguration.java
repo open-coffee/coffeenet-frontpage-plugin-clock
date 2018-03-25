@@ -7,7 +7,7 @@ import java.time.Clock;
 
 
 @Configuration
-class FrontpagePluginConfiguration {
+class ClockPluginConfiguration {
 
     @Bean("plugin.clock.defaultClock")
     Clock clock() {

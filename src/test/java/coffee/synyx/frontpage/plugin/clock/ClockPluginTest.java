@@ -14,12 +14,12 @@ import static java.time.Clock.systemDefaultZone;
 import static java.time.ZoneId.systemDefault;
 
 
-public class FrontpagePluginInterfaceImplTest {
+public class ClockPluginTest {
 
     @Test
     public void hasCorrectTitle() {
 
-        final String title = new FrontpagePluginInterfaceImpl(systemDefaultZone()).title();
+        final String title = new ClockPlugin(systemDefaultZone()).title();
         assertThat(title, is("Clock"));
     }
 
@@ -29,7 +29,7 @@ public class FrontpagePluginInterfaceImplTest {
 
         final Instant fixedInstant = ZonedDateTime.of(2018, 11, 13, 0, 0, 0, 0, systemDefault()).toInstant();
         final Clock clock = Clock.fixed(fixedInstant, systemDefault());
-        final FrontpagePluginInterfaceImpl sut = new FrontpagePluginInterfaceImpl(clock);
+        final ClockPlugin sut = new ClockPlugin(clock);
 
         final String content = sut.content();
         assertThat(content, is("Hello CoffeeNet, it is 2018-11-13 12:00:00"));

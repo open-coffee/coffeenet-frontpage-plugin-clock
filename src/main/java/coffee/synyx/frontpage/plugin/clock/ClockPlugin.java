@@ -15,12 +15,12 @@ import static java.time.format.DateTimeFormatter.ofPattern;
 
 
 @Component
-public class FrontpagePluginInterfaceImpl implements FrontpagePluginInterface {
+public class ClockPlugin implements FrontpagePluginInterface {
 
     private final Clock clock;
 
     @Autowired
-    public FrontpagePluginInterfaceImpl(@Qualifier("plugin.clock.defaultClock") Clock clock) {
+    public ClockPlugin(@Qualifier("plugin.clock.defaultClock") Clock clock) {
 
         this.clock = clock;
     }
