@@ -35,7 +35,6 @@ public class ClockPlugin implements FrontpagePluginInterface {
     @Override
     public String content() {
 
-        return "Hello CoffeeNet, it is "
-            + ofPattern("yyyy-MM-dd hh:mm:ss").withZone(systemDefault()).format(now(clock));
+        return ofPattern("yyyy-MM-dd HH:mm:ss").withZone(systemDefault()).format(now(clock));
     }
 }
