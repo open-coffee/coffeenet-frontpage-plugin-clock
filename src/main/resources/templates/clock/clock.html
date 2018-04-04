@@ -1,0 +1,128 @@
+<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Quicksand" />
+<div class="clock-face">
+  <div class="clock-hand clock-hand--hour"></div>
+  <div class="clock-hand clock-hand--minute"></div>
+  <div class="clock-hand clock-hand--second"></div>
+  <div class="clock-hour clock-hour--n">12</div>
+  <div class="clock-hour clock-hour--e">3</div>
+  <div class="clock-hour clock-hour--s">6</div>
+  <div class="clock-hour clock-hour--w">9</div>
+</div>
+<style>
+  .clock-face {
+    --seconds-today: 0;
+    --radius: calc(227px);
+    --inner-radius: calc(var(--radius) * 0.06);
+    width: var(--radius);
+    height: var(--radius);
+    border-radius: 50%;
+    position: relative;
+    background-color: #f5f5f5;
+    margin: auto;
+  }
+  .clock-face::after {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    z-index: 15;
+    background: url(/img/logo.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: block;
+    border-radius: 50%;
+  }
+
+  .clock-hand {
+    --width: 2px;
+    --minutes: calc(var(--seconds-today) / 60);
+    --hours: calc(var(--seconds-today) / 3600);
+    --angle: calc(var(--seconds-today) * 6deg + 180deg);
+    position: absolute;
+    height: calc(var(--radius) / 2);
+    width: var(--width);
+    border-radius: 3px 3px 20% 20%;
+    background-color: #403637;
+    top: calc(50%);
+    left: calc(50% - var(--width) / 2);
+    z-index: 10;
+    -webkit-transform-origin: center 15px;
+    transform-origin: center 15px;
+    -webkit-transform: translateY(-15px) rotateZ(var(--angle));
+    transform: translateY(-15px) rotateZ(var(--angle));
+    -webkit-box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2), -2px -2px 10px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2), -2px -2px 10px 1px rgba(0, 0, 0, 0.2);
+  }
+  .clock-hand--second {
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.445, 1.6);
+    transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.445, 1.6);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.445, 1.6);
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.445, 1.6), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.445, 1.6);
+    background-color: #E97B65;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1), -1px -1px 5px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1), -1px -1px 5px 1px rgba(0, 0, 0, 0.1);
+  }
+  .clock-hand--minute {
+    --width: 8px;
+    --angle: calc(var(--minutes) * 6deg + 180deg);
+    height: calc(var(--radius) / 2);
+  }
+  .clock-hand--hour {
+    --width: 8px;
+    --angle: calc(var(--hours) * 30deg + 180deg);
+    height: calc(var(--radius) / 2.4);
+  }
+
+  .clock-hour {
+    --offset: 15px;
+    --size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    line-height: var(--size);
+    font-size: var(--size);
+    display: block;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #A19994;
+  }
+  .clock-hour--n {
+    top: var(--offset);
+  }
+  .clock-hour--e {
+    left: auto;
+    right: var(--offset);
+  }
+  .clock-hour--s {
+    top: auto;
+    bottom: var(--offset);
+  }
+  .clock-hour--w {
+    left: var(--offset);
+  }
+  .clock-hour--n,
+  .clock-hour--s {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  .clock-hour--e,
+  .clock-hour--w {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+</style>
+<script>
+  (function clockModule() {
+    function update() {
+      const secondsToday = (Date.now() / 1000 - new Date().getTimezoneOffset() * 60) % (24 * 3600);
+      document.querySelector('.clock-face').style.setProperty('--seconds-today', secondsToday);
+    }
+    window.setInterval(update, 1000);
+    update();
+  })();
+</script>
