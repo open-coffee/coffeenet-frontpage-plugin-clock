@@ -1,28 +1,19 @@
 package coffee.synyx.frontpage.plugin.clock;
 
 import coffee.synyx.frontpage.plugin.api.FrontpagePluginInterface;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-
 import org.springframework.stereotype.Component;
-
-import java.time.Clock;
-
-import static java.time.Instant.now;
-import static java.time.ZoneId.systemDefault;
-import static java.time.format.DateTimeFormatter.ofPattern;
 
 
 @Component
 public class ClockPlugin implements FrontpagePluginInterface {
 
-    private final Clock clock;
+    private final ClockContentRenderer contentRenderer;
 
     @Autowired
-    public ClockPlugin(@Qualifier("plugin.clock.defaultClock") Clock clock) {
+    public ClockPlugin(ClockContentRenderer contentRenderer) {
 
-        this.clock = clock;
+        this.contentRenderer = contentRenderer;
     }
 
     @Override
@@ -35,6 +26,6 @@ public class ClockPlugin implements FrontpagePluginInterface {
     @Override
     public String content() {
 
-        return ofPattern("yyyy-MM-dd HH:mm:ss").withZone(systemDefault()).format(now(clock));
+        return contentRenderer.render();
     }
 }
