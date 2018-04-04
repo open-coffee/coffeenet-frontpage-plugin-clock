@@ -23,19 +23,20 @@
   }
   .clock-face::after {
     content: "";
-    width: var(--inner-radius);
-    height: var(--inner-radius);
+    width: 2rem;
+    height: 2rem;
     position: absolute;
     z-index: 15;
-    background-color: #fff;
+    background: url(/img/logo.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     display: block;
     border-radius: 50%;
-    -webkit-box-shadow: 1px 1px 3px 1px rgba(180, 180, 0, 0.9) inset, -1px -1px 3px 1px rgba(180, 180, 0, 0.9) inset;
-    box-shadow: 1px 1px 3px 1px rgba(180, 180, 0, 0.9) inset, -1px -1px 3px 1px rgba(180, 180, 0, 0.9) inset;
   }
 
   .clock-hand {
