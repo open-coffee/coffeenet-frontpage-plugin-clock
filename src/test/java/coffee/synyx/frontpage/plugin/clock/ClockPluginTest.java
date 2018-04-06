@@ -17,6 +17,14 @@ public class ClockPluginTest {
         assertThat(title).isEqualTo("Clock");
     }
 
+    @Test
+    public void hasCorrectId() {
+
+        final ClockContentRenderer contentRenderer = mock(ClockContentRenderer.class);
+        final String id = new ClockPlugin(contentRenderer).id();
+        assertThat(id).isEqualTo("clock");
+    }
+
 
     @Test
     public void clockHasCorrectTime() {

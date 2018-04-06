@@ -28,4 +28,9 @@ public class ClockPlugin implements FrontpagePluginInterface {
 
         return contentRenderer.render();
     }
+
+    @Override
+    public String id() {
+        return "clock";
+    }
 }
