@@ -13,7 +13,7 @@ public class ClockPluginTest {
     public void hasCorrectTitle() {
 
         final ClockContentRenderer contentRenderer = mock(ClockContentRenderer.class);
-        final String title = new ClockPlugin(contentRenderer).title();
+        final String title = new ClockPlugin(contentRenderer).title(key -> "");
         assertThat(title).isEqualTo("Clock");
     }
 
@@ -34,7 +34,7 @@ public class ClockPluginTest {
 
         when(contentRenderer.render()).thenReturn("rendered content");
 
-        final String content = sut.content();
+        final String content = sut.content(key -> "");
         assertThat(content).isEqualTo("rendered content");
     }
 }

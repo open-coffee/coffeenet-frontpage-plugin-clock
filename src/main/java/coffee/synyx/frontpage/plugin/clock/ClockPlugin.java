@@ -1,12 +1,16 @@
 package coffee.synyx.frontpage.plugin.clock;
 
-import coffee.synyx.frontpage.plugin.api.FrontpagePluginInterface;
+import coffee.synyx.frontpage.plugin.api.ConfigurationDescription;
+import coffee.synyx.frontpage.plugin.api.ConfigurationInstance;
+import coffee.synyx.frontpage.plugin.api.FrontpagePlugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 
 @Component
-public class ClockPlugin implements FrontpagePluginInterface {
+public class ClockPlugin implements FrontpagePlugin {
 
     private final ClockContentRenderer contentRenderer;
 
@@ -17,14 +21,14 @@ public class ClockPlugin implements FrontpagePluginInterface {
     }
 
     @Override
-    public String title() {
+    public String title(ConfigurationInstance configurationInstance) {
 
         return "Clock";
     }
 
 
     @Override
-    public String content() {
+    public String content(ConfigurationInstance configurationInstance) {
 
         return contentRenderer.render();
     }
@@ -32,5 +36,11 @@ public class ClockPlugin implements FrontpagePluginInterface {
     @Override
     public String id() {
         return "clock";
+    }
+
+    @Override
+    public Optional<ConfigurationDescription> getConfigurationDescription() {
+
+        return Optional.empty();
     }
 }
