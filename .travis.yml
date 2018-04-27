@@ -7,14 +7,13 @@ jdk:
 
 before_deploy:
   - mvn -DskipTests package
-  - export JAR_FILE=$(ls target/frontpage-plugin-clock*.jar)
-  - echo "deploying $JAR_FILE to GitHub releases"
 
 deploy:
   - provider: releases
     api_key:
       secure: 2ABOhkfLmTbg3ZGCwsGdQsS+0qK4DCPCmhkY0EeL+4vRXGPWZ+2j43kBQZjT99aBt4ztheWUxkbAt3eYpjmNtRFWYMVWQ6tViGvLwt71wSQsY5hUz27lFJNwTcsZrGvU1EAMymOu/Jo2LGcPfSmQW7xIAsF0eZ8ikMKfqO4+nTLSr/t3EwGwjnu33q1O3jHGPUpSb+eEjNLeT7onr8TrMbHHveRxTRw66w9pQipr3TKa8dvf2TI5VFfyYHXAGUewoAEpba3WUuOAxVri5xuXYxbVWmyvkDtkCXl0pktWFuINcUa/taPXVsdVyePbIbfm92ooJKlJDFODAaRP5MuBSm1gbmw9fqwwBmFvqPo4CJwiJ3X9ZqhYas5DM7huTAr5LdFe4p1snITv7bRgsQ6xI7e2M+y9wFlowyYNXvmyhiNhHJCFU8Cp8Op1VL0Plc2v/vXROOO++vaeb8gm+14S7yo828bsKfkZHxxbwdiAkIpS8Zi9oUA04KqaTFNvQO8c0E3eC0+RnTixZRhOmMYSTMAw842IlaJLXac5DagFLuMlI0VhaUzyKp7bn0DSRngrWjxM3c8ojuyDvp9co9pPCIuxW6cssU2K1aPjmO9jj0+GTEAe86nY4zI7pc/9C0U8LRMUvatWypfup11QKSClejUbEYg/zIsVG0h5/b//2sM=
-    file: "${JAR_FILE}"
+    file_glob: true
+    file: 'target/frontpage-plugin-clock-*.jar'
     skip_cleanup: true
     on:
       tags: true
