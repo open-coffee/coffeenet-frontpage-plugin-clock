@@ -9,15 +9,15 @@ before_deploy:
   - mvn -DskipTests package
 
 deploy:
-  - provider: releases
-    api_key:
-      secure: 2ABOhkfLmTbg3ZGCwsGdQsS+0qK4DCPCmhkY0EeL+4vRXGPWZ+2j43kBQZjT99aBt4ztheWUxkbAt3eYpjmNtRFWYMVWQ6tViGvLwt71wSQsY5hUz27lFJNwTcsZrGvU1EAMymOu/Jo2LGcPfSmQW7xIAsF0eZ8ikMKfqO4+nTLSr/t3EwGwjnu33q1O3jHGPUpSb+eEjNLeT7onr8TrMbHHveRxTRw66w9pQipr3TKa8dvf2TI5VFfyYHXAGUewoAEpba3WUuOAxVri5xuXYxbVWmyvkDtkCXl0pktWFuINcUa/taPXVsdVyePbIbfm92ooJKlJDFODAaRP5MuBSm1gbmw9fqwwBmFvqPo4CJwiJ3X9ZqhYas5DM7huTAr5LdFe4p1snITv7bRgsQ6xI7e2M+y9wFlowyYNXvmyhiNhHJCFU8Cp8Op1VL0Plc2v/vXROOO++vaeb8gm+14S7yo828bsKfkZHxxbwdiAkIpS8Zi9oUA04KqaTFNvQO8c0E3eC0+RnTixZRhOmMYSTMAw842IlaJLXac5DagFLuMlI0VhaUzyKp7bn0DSRngrWjxM3c8ojuyDvp9co9pPCIuxW6cssU2K1aPjmO9jj0+GTEAe86nY4zI7pc/9C0U8LRMUvatWypfup11QKSClejUbEYg/zIsVG0h5/b//2sM=
-    file_glob: true
-    file: 'target/frontpage-plugin-clock-*.jar'
-    skip_cleanup: true
-    on:
-      tags: true
-      repo: coffeenet/coffeenet-frontpage-plugin-api
+  provider: releases
+  api_key:
+    secure: SVo+89snCa0LsQ3FfMwMKRZcGJIq6h1KqwF05x65yQ/3ojMxobT2FTdNzrVowFM4Tzpvacjit92MwDrpka453YhqSFNr9piDKqPNyXEX7r+HT9ETQ6VXBR/aY20X+bv2BBb2d5bwOGnvwHrDvYb2v83MeP+krYfMJWtbDGFnDYlwmI9Rc80SMSr0KoHIsx8EEMoxkPwUvqq54OxCmElhnKOgamhv6JkuFiA6OMCT9Ut3jaSs49JwstvCQ5kwR7TXdO2U023rmwnpEmdcAuN5jkjnc6znx/ybKl2rDlv7vjtHnie6LO4d8x2mFBlCl+aVUDIbf2oHKoIiViRN9p2ggwOx82okXl6VG8dA/imp37yG2dkF/XVh7ZxN3GlBNQuYxOP5GGpyKf9NC/ajrr9qwvfpjsqp6y0WjQLvMVZU2unER4yq/iGZMQ6O3nkaK19FOmSFpvM9GPFQyBMWl/qf7z05waLLb6a/XXi0+w+BkfJACaLkQC2fp+h2i6OjJxXZnp7mls6piE6tq/XSDbWw9PLmh6fVblOB91b4woFhcpfhjJk91baKV1a1AI83yuX+AsHsGUZjQnFjcJBi0ETSJ5j8B8P0sPwQZjTRKEMgWPP9CoVtLz2NV6LkV5tx++Pfx5F0QPM8HQM+9IF6rt7ToQ9gBxjEk7hBsCe186i0JnY=
+  file_glob: true
+  file: 'target/frontpage-plugin-clock-*.jar'
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: coffeenet/coffeenet-frontpage-plugin-clock
 
 notifications:
   irc:
