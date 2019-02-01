@@ -1,4 +1,4 @@
-package coffee.synyx.frontpage.plugin.clock;
+package rocks.coffee.frontpage.plugin.clock;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
