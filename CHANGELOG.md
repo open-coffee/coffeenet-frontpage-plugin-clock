@@ -2,6 +2,7 @@
 
 ## 0.3.0-SNAPSHOT
 
+* rename package to `rocks.coffeenet.frontpage.plugin.clock`
 
 ## 0.2.0
 

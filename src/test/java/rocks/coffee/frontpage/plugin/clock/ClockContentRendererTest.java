@@ -1,4 +1,4 @@
-package coffee.synyx.frontpage.plugin.clock;
+package rocks.coffee.frontpage.plugin.clock;
 
 import org.junit.Ignore;
 import org.junit.Test;

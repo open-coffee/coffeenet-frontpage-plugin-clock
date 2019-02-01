@@ -1,4 +1,4 @@
-package coffee.synyx.frontpage.plugin.clock;
+package rocks.coffee.frontpage.plugin.clock;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package coffee.synyx.frontpage.plugin.clock;
+package rocks.coffee.frontpage.plugin.clock;
 
 import coffee.synyx.frontpage.plugin.api.ConfigurationDescription;
 import coffee.synyx.frontpage.plugin.api.ConfigurationInstance;
