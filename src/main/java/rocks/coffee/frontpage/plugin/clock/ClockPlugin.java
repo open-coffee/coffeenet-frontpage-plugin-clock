@@ -1,10 +1,10 @@
 package rocks.coffee.frontpage.plugin.clock;
 
-import coffee.synyx.frontpage.plugin.api.ConfigurationDescription;
-import coffee.synyx.frontpage.plugin.api.ConfigurationInstance;
-import coffee.synyx.frontpage.plugin.api.FrontpagePlugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import rocks.coffeenet.frontpage.plugin.api.ConfigurationDescription;
+import rocks.coffeenet.frontpage.plugin.api.ConfigurationInstance;
+import rocks.coffeenet.frontpage.plugin.api.FrontpagePlugin;
 
 import java.util.Optional;
 
